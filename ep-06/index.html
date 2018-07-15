@@ -1,0 +1,63 @@
+<html>
+
+<body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <div id="root">
+        <h1> {{reverseMessage}} </h1>
+        <h3>All task</h3>
+        <ul>
+            <li v-for="task in tasks">
+                {{task.description}}
+                <input type="checkbox" v-model="task.completed" :checked="task.completed">
+            </li>
+        </ul>
+        <h3>Incomplete task</h3>
+        <ul>
+            <li v-for="task in incompleteTasks">
+                {{task.description}}
+            </li>
+        </ul>
+        <h3>Completed task</h3>
+        <ul>
+            <li v-for="task in completeTasks">
+                {{task.description}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+    
+    let data = {
+        message: "Hello world"
+    }
+
+    var app = new Vue({
+        el: '#root',
+        data: {
+            message: "Hello World",
+            tasks : [
+                { description: 'Clean room', completed: false },
+                { description: 'Clean bathroom', completed: false },
+                { description: 'Clean living room', completed: false },
+                { description: 'Make love', completed: true }
+            ]
+        },
+        computed: {
+            reverseMessage() {
+                return this.message.split('').reverse().join('');
+            },
+            incompleteTasks() {
+                return this.tasks.filter(task => ! task.completed);
+            },
+            completeTasks() {
+                return this.tasks.filter(task => task.completed);
+            }
+        }
+    })
+
+
+    </script>
+</body>
+</html>

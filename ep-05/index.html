@@ -1,0 +1,39 @@
+<html>
+
+<body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <div id="root">
+        <button id="button" :title="title">Hover me!</button>
+
+        <button @click="toggleButton" :disabled="disabled">Toggle Button</button>
+    </div>
+
+
+
+
+    <script>
+    
+    let data = {
+        message: "Hello world"
+    }
+
+    var app = new Vue({
+        el: '#root',
+        data: {
+            title: "@ sign is for 'v-on', while : is for 'v-bind'",
+            disabled: false
+        },
+        methods: {
+            toggleButton () {
+                // alert("hey!");
+                this.disabled = true;
+            }
+        }
+    })
+
+
+    </script>
+</body>
+</html>
