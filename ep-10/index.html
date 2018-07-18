@@ -1,0 +1,16 @@
+<html>
+
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <div id="root" class="container">
+        <ger-modal v-if="showModal">
+            This is a modal.
+        </ger-modal>
+        <button @click="showModal = true" @close="showModal = false">Show Modal</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
